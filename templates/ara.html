@@ -6,13 +6,23 @@
   <title>araiguma · Servidor de Discord</title>
   <meta name="description" content="Únete a araiguma, una comunidad de Discord para charlar, jugar y pasarlo bien.">
   <style>
+    @media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .header-content { text-align: center; }
+  header p { margin: 1rem auto 2rem; }
+}
+
+
     :root {
-      --bg: #1e1f2b;
-      --card: #2a2c3d;
+      --bg: #5769f1;
+      --card: #202fba;
       --text: #f2f3f7;
       --muted: #a9acc0;
-      --accent: #5865f2;
-      --accent-hover: #4752c4;
+      --accent: #202fba;
+      --accent-hover: #0312be;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -21,34 +31,46 @@
       color: var(--text);
       line-height: 1.6;
     }
-    header {
-      text-align: center;
-      padding: 5rem 1.5rem 3rem;
-      background: linear-gradient(160deg, #2b2e6b, var(--bg) 70%);
-    }
+  header {
+  display: flex;
+  flex-direction: row;          /* antes: column */
+  align-items: center;          /* centra verticalmente logo y texto */
+  justify-content: center;      /* centra el conjunto en la página */
+  gap: 10rem;                    /* separación entre logo y texto */
+  text-align: center;
+  padding: 5rem 1.5rem 3rem;
+  background: linear-gradient(180deg, #87a7f1, var(--bg) 70%);
+}
+    .header-content { text-align: left; }
+    header p { 
+    margin: 2rem 0 2rem ;
+    font-size: 1.5rem; 
+  }   /* antes: 1rem auto 2rem */  
+
     header h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 1px; }
-    header p { color: var(--muted); font-size: 1.2rem; max-width: 36rem; margin: 1rem auto 2rem; }
+    
     .btn {
       display: inline-block;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
       font-weight: 600;
+      font-size: 1.5rem;
       padding: .9rem 2rem;
       border-radius: 999px;
       transition: background .2s, transform .2s;
     }
     .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
-    main { max-width: 56rem; margin: 0 auto; padding: 3rem 1.5rem; }
+    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem; }
     h2 { text-align: center; margin-bottom: 2rem; }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-      gap: 1.2rem;
+      gap: 2rem;
     }
-    .card { background: var(--card); padding: 1.5rem; border-radius: 1rem; }
-    .card h3 { margin-bottom: .5rem; }
-    .card p { color: var(--muted); }
+    .card { background: var(--card); padding: 3rem; border-radius: 1rem; }
+    .card h3 { margin-bottom: .5rem; font-size: 1.6rem; }
+    .card p { color: var(--muted); font-size: 1.2rem; }
     .cta { text-align: center; padding: 3rem 1.5rem; }
     .cta p { color: var(--muted); margin-bottom: 1.5rem; }
     .slot {
@@ -57,13 +79,19 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      border: 2px dashed var(--muted);
+     /* border: 2px dashed var(--muted);*/
       color: var(--muted);
       font-size: .9rem;
       overflow: hidden;
     }
     .slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .logo { width: 9rem; height: 9rem; border-radius: 50%; margin: 0 auto 1.5rem; }
+    .logo {
+  width: 23rem;
+  height: 23rem;
+  border-radius: 50%;
+  margin: 0;          /* antes: 0 auto 1.5rem */
+  flex-shrink: 0;     /* que no se aplaste si falta espacio */
+}
     .meme img{object-fit: contain; width: 100%; height: 100%;}
     .meme { width: min(100%, 26rem); aspect-ratio: 4 / 3; border-radius: 1rem; margin: 0 auto; }
     .meme-section { text-align: center; padding: 1rem 1.5rem 3rem; }
@@ -77,27 +105,29 @@
     <!-- Pon aquí tu logo: guarda la imagen como logo.png junto a este archivo -->
     <div class="slot logo">
       <span>Tu logo aquí<br>(logo.png)</span>
-      <img src="/static/ABU.jpg" alt="Logo de araiguma" onerror="this.remove()">
+      <img src="/static/ABU.png" alt="Logo de araiguma" onerror="this.remove()">
     </div>
-    <h1>araiguma</h1>
-    <p>Una comunidad de Discord para charlar, jugar y pasarlo bien. ¡Ven a conocernos!</p>
-    <a class="btn" href="https://discord.gg/ApbDgCxF6m" target="_blank" rel="noopener">Unirme al servidor</a>
-  </header>
 
+    <div  class="header-content">
+    <h1>ARAIGUMA</h1>
+    <p>Un servidor de discord para personas mayores de edad que residen en España</p>
+    <a class="btn" href="https://discord.gg/ApbDgCxF6m" target="_blank" rel="noopener">Unirme al servidor</a>
+    </div>
+  </header>
   <main>
     <h2>¿Qué encontrarás?</h2>
     <div class="grid">
       <div class="card">
-        <h3>💬 Buen ambiente</h3>
+        <h3> Buen ambiente</h3>
         <p>Una comunidad cercana y respetuosa donde todos son bienvenidos.</p>
       </div>
       <div class="card">
-        <h3>🎮 Jugamos juntos</h3>
-        <p>Encuentra gente para tus partidas y organiza quedadas.</p>
+        <h3> Jugamos juntos</h3>
+        <p>Encuentra gente para jugar a tus juegos favoritos.</p>
       </div>
       <div class="card">
-        <h3>🎉 Eventos</h3>
-        <p>Sorteos, torneos y actividades para toda la comunidad.</p>
+        <h3> Eventos</h3>
+        <p> Torneos, preguntas y adivinancias diarias, y actividades para toda la comunidad.</p>
       </div>
     </div>
   </main>
@@ -109,8 +139,8 @@
   </section>
 
   <section class="meme-section">
-    <h2>Y para despedirnos…</h2>
-    <!-- Pon aquí tu imagen de coña: guárdala como meme.png junto a este archivo -->
+    <h2>Una aportacion de nuestra comunidad…</h2>
+    
     <div class="slot meme">
       
       <img src="/static/Imagine-Mothman-removebg-preview.png" alt="Imagen de coña" onerror="this.remove()">
